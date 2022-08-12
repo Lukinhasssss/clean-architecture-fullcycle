@@ -1,0 +1,16 @@
+{
+  "extends": "standard-with-typescript",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    // "curly": ["error", "multi-or-nest"],
+    "curly": "off",
+    "accessor-pairs": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/method-signature-style": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-extraneous-class": "off"
+  }
+}
