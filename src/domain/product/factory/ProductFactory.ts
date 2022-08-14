@@ -16,4 +16,8 @@ export default class ProductFactory {
         throw new Error(`Product type '${type}' is not supported`)
     }
   }
+
+  static createWithoutType (name: string, price: number): Product {
+    return new Product(uuid(), name, price)
+  }
 }
