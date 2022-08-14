@@ -23,7 +23,13 @@ export default class ProductRepository implements IProductRepository {
   }
 
   async findById (id: string): Promise<Product> {
-    const productModel = await ProductModel.findOne({ where: { id } })
+    let productModel
+
+    try {
+      productModel = await ProductModel.findOne({ where: { id }, rejectOnEmpty: true })
+    } catch (error) {
+      throw new Error(`Product ${id} not found`)
+    }
 
     return new Product(
       productModel.id,
