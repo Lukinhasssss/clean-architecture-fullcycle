@@ -45,6 +45,6 @@ describe('Integration tests for find product use case', () => {
 
     const input = { id: '123' }
 
-    await expect(findProductUseCase.execute(input)).rejects.toThrow('Product 123 not found')
+    await expect(findProductUseCase.execute(input)).rejects.toThrow(`Product with id ${input.id} not found`)
   })
 })
