@@ -28,7 +28,7 @@ export default class ProductRepository implements IProductRepository {
     try {
       productModel = await ProductModel.findOne({ where: { id }, rejectOnEmpty: true })
     } catch (error) {
-      throw new Error(`Product ${id} not found`)
+      throw new Error(`Product with id ${id} not found`)
     }
 
     return new Product(

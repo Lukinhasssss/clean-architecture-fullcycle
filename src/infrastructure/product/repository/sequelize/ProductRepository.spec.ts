@@ -83,7 +83,7 @@ describe('Product repository tests', () => {
 
   test('should throw an error when product not found', async () => {
     const productRepository = new ProductRepository()
-    await expect(productRepository.findById('1')).rejects.toThrow('Product 1 not found')
+    await expect(productRepository.findById('1')).rejects.toThrow('Product with id 1 not found')
   })
 
   test('should find all products', async () => {
