@@ -30,4 +30,17 @@ describe('Unit tests for notifications', () => {
     expect(notification.messages('customer')).toBe('customer: error message, customer: error message 2')
     expect(notification.messages()).toBe('customer: error message, customer: error message 2, order: error message 3')
   })
+
+  test('shouls check if notification has at least one error', () => {
+    const notification = new Notification()
+
+    const error = {
+      message: 'error message',
+      context: 'customer'
+    }
+
+    notification.addError(error)
+
+    expect(notification.hasErrors()).toBe(true)
+  })
 })
