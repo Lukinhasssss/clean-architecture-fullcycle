@@ -1,20 +1,20 @@
+import Entity from '../../@shared/entity/Entity.abstract'
 import Address from '../value-object/Address'
 
-export default class Customer {
-  private readonly _id: string
+export default class Customer extends Entity {
   private _name: string = ''
   private _address!: Address
   private _active: boolean = false
   private _rewardPoints: number = 0
 
   constructor (id: string, name: string) {
-    this._id = id
+    super()
+    this.id = id
     this._name = name
     this.validate()
-  }
 
-  get id (): string {
-    return this._id
+    if (this.notification.hasErrors())
+      throw new Error(this.notification.messages())
   }
 
   get name (): string {
@@ -56,7 +56,11 @@ export default class Customer {
   }
 
   validate (): void {
-    if (!this._id) throw new Error('Customer id is required')
-    if (!this._name) throw new Error('Customer name is required')
+    if (!this.id)
+      this.notification.addError({ message: 'Customer id is required', context: 'customer' })
+    if (!this._name)
+      this.notification.addError({ message: 'Customer name is required', context: 'customer' })
+    // if (!this._address)
+    //   this.notification.addError({ message: 'Customer address is required', context: 'customer' })
   }
 }
