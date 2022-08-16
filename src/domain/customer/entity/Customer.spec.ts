@@ -3,11 +3,16 @@ import Customer from './Customer'
 
 describe('Customer unit tests', () => {
   test('should throw an error when id is empty', () => {
-    expect(() => new Customer('', 'Roronoa Zoro')).toThrowError('Customer id is required')
+    expect(() => new Customer('', 'Roronoa Zoro')).toThrowError('customer: Customer id is required')
   })
 
   test('should throw an error when name is empty', () => {
-    expect(() => new Customer('1', '')).toThrowError('Customer name is required')
+    expect(() => new Customer('1', '')).toThrowError('customer: Customer name is required')
+  })
+
+  test('should throw an error when id and name is empty', () => {
+    expect(() => new Customer('', ''))
+      .toThrowError('customer: Customer id is required, customer: Customer name is required')
   })
 
   test('should change name', () => {
@@ -18,7 +23,7 @@ describe('Customer unit tests', () => {
 
   test('should throw an error if try to change name passing an empty value', () => {
     const customer = new Customer('1', 'Roronoa Zoro')
-    expect(() => customer.changeName('')).toThrowError('Customer name is required')
+    expect(() => customer.changeName('')).toThrowError('customer: Customer name is required')
   })
 
   test('should activate a customer', () => {
@@ -33,7 +38,7 @@ describe('Customer unit tests', () => {
 
   test('should throw an error if try to activate a customer without address', () => {
     const customer = new Customer('1', 'Roronoa Zoro')
-    expect(() => customer.activate()).toThrowError('Address is mandatory to activate customer')
+    expect(() => customer.activate()).toThrowError('customer: Address is mandatory to activate customer')
   })
 
   test('should deactivate customer', () => {

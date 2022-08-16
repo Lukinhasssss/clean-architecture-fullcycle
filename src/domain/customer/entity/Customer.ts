@@ -31,8 +31,12 @@ export default class Customer extends Entity {
   }
 
   changeName (name: string): void {
+    if (!name) {
+      this.notification.addError({ message: 'Customer name is required', context: 'customer' })
+      throw new NotificationError(this.notification.getErrors())
+    }
+
     this._name = name
-    this.validate()
   }
 
   changeAddress (address: Address): void {
@@ -40,7 +44,11 @@ export default class Customer extends Entity {
   }
 
   activate (): void {
-    if (!this._address) throw new Error('Address is mandatory to activate customer')
+    if (!this._address) {
+      this.notification.addError({ message: 'Address is mandatory to activate customer', context: 'customer' })
+      throw new NotificationError(this.notification.getErrors())
+    }
+
     this._active = true
   }
 
@@ -59,9 +67,8 @@ export default class Customer extends Entity {
   validate (): void {
     if (!this.id)
       this.notification.addError({ message: 'Customer id is required', context: 'customer' })
+
     if (!this._name)
       this.notification.addError({ message: 'Customer name is required', context: 'customer' })
-    // if (!this._address)
-    //   this.notification.addError({ message: 'Customer address is required', context: 'customer' })
   }
 }
