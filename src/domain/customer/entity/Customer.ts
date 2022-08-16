@@ -1,5 +1,6 @@
 import Entity from '../../@shared/entity/Entity.abstract'
 import NotificationError from '../../@shared/notification/NotificationError'
+import CustomerValidatorFactory from '../factory/CustomerValidatorFactory'
 import Address from '../value-object/Address'
 
 export default class Customer extends Entity {
@@ -65,10 +66,6 @@ export default class Customer extends Entity {
   }
 
   validate (): void {
-    if (!this.id)
-      this.notification.addError({ message: 'Customer id is required', context: 'customer' })
-
-    if (!this._name)
-      this.notification.addError({ message: 'Customer name is required', context: 'customer' })
+    CustomerValidatorFactory.create().validate(this)
   }
 }
