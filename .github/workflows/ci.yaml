@@ -26,6 +26,7 @@ jobs:
         run: yarn test
   docker:
     runs-on: ubuntu-latest
+    needs: unitTests
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
