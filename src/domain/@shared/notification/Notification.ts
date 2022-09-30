@@ -28,9 +28,13 @@ export default class Notification {
 
     message = message.slice(0, -2)
     return message
-    // return this.errors
-    //   .filter(error => error.context === context)
-    //   .map(error => error.message)
-    //   .join(', ')
   }
 }
+
+/**
+ * Outra forma de fazer o forEach dentro de messages()...
+ * return this.errors
+ *   .filter(error => error.context === context)
+ *   .map(error => error.message)
+ *   .join(', ')
+ */
