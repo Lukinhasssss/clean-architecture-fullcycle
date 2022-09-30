@@ -45,7 +45,7 @@ export default class Order {
   }
 
   addItems (items: OrderItem[]): void {
-    items.map(item => this.addItem(item))
+    items.forEach(item => this.addItem(item))
   }
 
   private removeItem (item: OrderItem): void {
@@ -54,6 +54,6 @@ export default class Order {
   }
 
   removeItems (items: OrderItem[]): void {
-    items.map(item => this.removeItem(item))
+    items.forEach(item => this.removeItem(item))
   }
 }
