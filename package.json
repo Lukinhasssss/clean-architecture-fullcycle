@@ -1,8 +1,13 @@
 {
+  "name": "clean-architecture-fullcycle",
+  "version": "1.0.0",
+  "main": "src/infrastructure/api/server.ts",
+  "author": "Lucas Monteiro",
+  "license": "MIT",
   "scripts": {
     "dev": "nodemon src/infrastructure/api/server.ts",
-    "tsc": "tsc",
-    "test": "yarn tsc --noEmit && jest"
+    "test": "yarn tsc --noEmit && jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:ci": "yarn test --coverage"
   },
   "dependencies": {
     "@types/express": "^4.17.13",
