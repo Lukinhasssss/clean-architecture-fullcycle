@@ -7,7 +7,7 @@ on:
 
 jobs:
   continuous-integration:
-    name: SonarCloud
+    name: Continuos Integration
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
