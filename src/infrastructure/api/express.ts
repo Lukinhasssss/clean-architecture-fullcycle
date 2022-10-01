@@ -7,6 +7,7 @@ import { productsRoute } from './routes/products.route'
 
 export const app: Express = express()
 
+app.disable('x-powered-by')
 app.use(express.json())
 
 app.use('/customers', customersRoute)
