@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: clean-architecture-fullcycle
-  replicas: 2
+  replicas: 10
   template:
     metadata:
       labels:
