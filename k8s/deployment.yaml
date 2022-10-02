@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clean-architecture-fullcycle
+  labels:
+    app: clean-architecture-fullcycle
+spec:
+  selector:
+    matchLabels:
+      app: clean-architecture-fullcycle
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: 'clean-architecture-fullcycle'
+    spec:
+      containers:
+        - name: 'clean-architecture-fullcycle'
+          image: 'lukinhasssss/node-clean-architecture-fullcycle'
