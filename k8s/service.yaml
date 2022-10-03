@@ -5,10 +5,13 @@ metadata:
 spec:
   selector: # é responsável por filtrar todos os pods que vão estar incorporados nesse serviço
     app: clean-architecture-fullcycle
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: clean-architecture-fullcycle
       port: 8080 # é a porta que vai ser exposta pelo service
       targetPort: 3000 # é a porta do container
       protocol: TCP
-      nodePort: 30001 # 30000 - 32767
+
+# LoadBalancer:
+#   Gera automaticamente um IP EXTERNO
+#   Todo mundo que acessar esse IP EXTERNO vai conseguir acessar determinado servidor
