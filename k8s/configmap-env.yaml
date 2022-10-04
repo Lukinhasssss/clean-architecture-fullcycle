@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: clean-architecture-fullcycle-environment
+data:
+  PORT: '8080'
+  DB_URL: 'db_url'
+  DB_PASSWORD: 'db_password'

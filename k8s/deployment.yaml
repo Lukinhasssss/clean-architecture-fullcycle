@@ -19,4 +19,17 @@ spec:
           image: 'lukinhasssss/node-clean-architecture-fullcycle'
           env:
             - name: PORT
-              value: '8080'
+              valueFrom:
+                configMapKeyRef:
+                  name: clean-architecture-fullcycle-environment
+                  key: PORT
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: clean-architecture-fullcycle-environment
+                  key: DB_URL
+            - name: DB_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: clean-architecture-fullcycle-environment
+                  key: DB_PASSWORD
