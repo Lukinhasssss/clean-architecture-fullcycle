@@ -17,19 +17,22 @@ spec:
       containers:
         - name: 'clean-architecture-fullcycle'
           image: 'lukinhasssss/node-clean-architecture-fullcycle'
-          env:
-            - name: PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: clean-architecture-fullcycle-environment
-                  key: PORT
-            - name: DB_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: clean-architecture-fullcycle-environment
-                  key: DB_URL
-            - name: DB_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  name: clean-architecture-fullcycle-environment
-                  key: DB_PASSWORD
+          envFrom:
+            - configMapRef:
+                name: clean-architecture-fullcycle-environment
+          # env:
+          #   - name: PORT
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: clean-architecture-fullcycle-environment
+          #         key: PORT
+          #   - name: DB_URL
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: clean-architecture-fullcycle-environment
+          #         key: DB_URL
+          #   - name: DB_PASSWORD
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: clean-architecture-fullcycle-environment
+          #         key: DB_PASSWORD
