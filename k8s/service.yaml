@@ -9,7 +9,7 @@ spec:
   ports:
     - name: clean-architecture-fullcycle
       port: 8080 # é a porta que vai ser exposta pelo service
-      targetPort: 3000 # é a porta do container
+      targetPort: 8080 # é a porta do container
       protocol: TCP
 
 # LoadBalancer:

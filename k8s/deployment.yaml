@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: clean-architecture-fullcycle
-  replicas: 4
+  replicas: 2
   template:
     metadata:
       labels:
@@ -17,3 +17,6 @@ spec:
       containers:
         - name: 'clean-architecture-fullcycle'
           image: 'lukinhasssss/node-clean-architecture-fullcycle'
+          env:
+            - name: PORT
+              value: '8080'
