@@ -20,9 +20,12 @@ spec:
           envFrom:
             - configMapRef:
                 name: clean-architecture-fullcycle-environment
+            - secretRef:
+                name: clean-architecture-fullcycle-secret
           volumeMounts: # Monta um volume declarado
             - mountPath: /app/resources
               name: config
+              readOnly: true
       volumes:
         - name: config
           configMap:
