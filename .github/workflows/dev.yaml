@@ -7,10 +7,12 @@ on:
 
 jobs:
   continuous-integration:
-    name: SonarCloud
+    name: Continuos Integration
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Use Node.js 16.17.1
         uses: actions/setup-node@v3
@@ -20,10 +22,10 @@ jobs:
       - name: Install Dependencies
         run: yarn --frozen-lockfile
 
-      - name: Run unit tests
+      - name: Run Unit Tests
         run: yarn test:ci
 
-      - name: SonarCloud Scan
+      - name: Run SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
