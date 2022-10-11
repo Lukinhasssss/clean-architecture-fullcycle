@@ -1,6 +1,9 @@
 name: Run unit tests and sonar checks
 
 on:
+  push:
+    branches:
+      - develop
   pull_request:
     branches:
       - develop
